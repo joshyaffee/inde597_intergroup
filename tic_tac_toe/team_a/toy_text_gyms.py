@@ -170,13 +170,13 @@ class TTTAgent:
         env = TicTacToeEnv(render_mode="rgb_array")
         game = ToyTextGym(env)
         dp = DynamicProgram(game)    
-        dp.tol = 0.000001
+        dp.tol = 0
         self.pol = dp.value_iteration()
 
     def get_policy(self, state):
         '''
         INPUT
-            state; current state as a TODO
+            state; current state as a 9-tuple of integers
         RETURNS
             an action from the given state using the held policy
         '''
