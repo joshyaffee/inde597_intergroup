@@ -47,7 +47,7 @@ class EnvironmentVersus(ABC):
         return None, 0, False, None
 
     @abstractmethod
-    def reset(self):
+    def reset(self, state: list = None):
         '''
         Resets this envinroment
         RETURNS
