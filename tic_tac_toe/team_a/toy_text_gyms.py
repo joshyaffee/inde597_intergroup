@@ -7,8 +7,8 @@ import itertools
 from matplotlib.animation import FuncAnimation
 from IPython.display import HTML
 
-from tic_tac_toe import TicTacToeEnv
-from dynamic_program import Game, DynamicProgram
+from team_a.tic_tac_toe import TicTacToeEnv
+from team_a.dynamic_program import Game, DynamicProgram
 import structlog
 
 # from environments import *
@@ -181,7 +181,7 @@ class TTTAgent:
             an action from the given state using the held policy
         '''
         # Sample policy
-        actions = self.pol[state]
+        actions = list(self.pol[state].keys())
         probs = [self.pol[state][act]
                     for act in actions]
         return np.random.choice(a=actions, p=probs)
