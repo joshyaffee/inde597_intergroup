@@ -82,7 +82,7 @@ class ToyTextGym(Game):
                 for step_outcome in self.env.unwrapped.P[st][act]:
                     if step_outcome[3]:
                         self.actions[step_outcome[1]] = []
-        
+
     def get_state_and_reward(self, oldstate, action):
         '''
         Given the current state and an action, outputs two parallel lists describing potential outcomes
@@ -169,9 +169,17 @@ class TTTAgent:
         '''
         env = TicTacToeEnv(render_mode="rgb_array")
         game = ToyTextGym(env)
+
+        for st in game.actions.keys():
+            game.actions[st] = [a for a in game.actions[st] if st[a] == 0]                     
+
         dp = DynamicProgram(game)    
         dp.tol = 0
         self.pol = dp.value_iteration()
+
+        print(game.actions[(1, 1, 2, 2, 2, 0, 1, 0, 0)])
+        print(env.unwrapped.P[(1, 1, 2, 2, 2, 0, 1, 0, 0)][0])
+
 
     def get_policy(self, state):
         '''
