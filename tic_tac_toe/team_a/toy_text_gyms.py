@@ -184,6 +184,7 @@ class TTTAgent:
         actions = list(self.pol[state].keys())
         probs = [self.pol[state][act]
                     for act in actions]
+        print(self.pol[state])
         return np.random.choice(a=actions, p=probs)
 
 # def toy_text_experiment(mdl_name, n_animations=1):
