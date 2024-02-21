@@ -66,7 +66,7 @@ class TicTacToeEnv(gym.Env):
             # If the dictionary has been pickled, load it to save time
             logger.info("Loading state_action_to_update_function.pkl")
             # change this to absolute path of device
-            with open("team_a/state_action_to_update_function.pkl", "rb") as f:
+            with open("C:\\Users\\joshy\\Documents\\inde_597_drl\\inde597_intergroup\\tic_tac_toe\\team_a\\state_action_to_update_function.pkl", "rb") as f:
                 return pickle.load(f)
         except FileNotFoundError:
             logger.info("It can not be loaded. Computing state_action_to_update_function.pkl")
